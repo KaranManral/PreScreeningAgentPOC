@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Menu, X, User, Search } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Menu, X, Search } from 'lucide-react';
 import Link from 'next/link';
 
 interface HeaderProps {
@@ -10,6 +10,10 @@ interface HeaderProps {
 
 export function Header({ currentPage }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  useEffect(()=>{
+    console.log(currentPage);
+  },[currentPage]);
 
   const navItems = [
     { name: 'CANDIDATE', href: '#', hasSubmenu: true },
