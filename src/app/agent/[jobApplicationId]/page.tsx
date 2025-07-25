@@ -8,26 +8,35 @@ function validateJobApplicationNumber(jobApplicationNumber: string): boolean {
     return false;
   }
   const jaPrefix = jaParts[0].toUpperCase();
-  if(jaPrefix !== "JAR") {
+  if (jaPrefix !== "JAR") {
     return false;
   }
-  if(!/^\d{4}$/.test(jaParts[1])) {
+  if (!/^\d{4}$/.test(jaParts[1])) {
     return false;
   }
   return true;
 }
 
-export default async function Agent({params}: {params: {"JAR-XXXX": string}}) {
-  const query = await params;
-  const jobApplicationNumber = query["JAR-XXXX"];
+export default async function Agent({
+  params,
+}: {
+  params: Promise<{ jobApplicationId: string }>;
+}) {
+  const { jobApplicationId } = await params;
+  const jobApplicationNumber = jobApplicationId.toUpperCase();
+
   if (!validateJobApplicationNumber(jobApplicationNumber)) {
     return (
       <div className="min-h-screen bg-adecco-light-gradient">
         <Header currentPage="agent" />
         <div className="flex items-center justify-center min-h-[calc(100vh-200px)]">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-gray-900 mb-2">400: Invalid Request</h1>
-            <p className="text-gray-600">The job application number format is invalid.</p>
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
+              400: Invalid Request
+            </h1>
+            <p className="text-gray-600">
+              The job application number format is invalid.
+            </p>
           </div>
         </div>
         <Footer />
