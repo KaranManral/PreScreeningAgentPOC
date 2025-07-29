@@ -1,4 +1,4 @@
-// Home page for the job board application.
+// Home page for the adecco recruiter application.
 // Displays job listings, job details modal, and application form modal.
 "use client";
 
@@ -116,7 +116,7 @@ export default function Home() {
       <div className="min-h-screen bg-adecco-light-gradient flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-adecco-red mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading job board...</p>
+          <p className="text-gray-600">Loading dashboard...</p>
         </div>
       </div>
     );

@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "JobBoard Pro - Find Your Next Career Opportunity",
+  title: "Recruiter - Find Your Next Career Opportunity",
   description:
-    "Discover and post job opportunities with JobBoard Pro. Connect employers with talented professionals in a modern, user-friendly platform.",
+    "Discover and post job opportunities with Recruiter. Connect employers with talented professionals in a modern, user-friendly platform.",
 };
 
 export default function RootLayout({

@@ -94,6 +94,7 @@ export async function POST(req: NextRequest) {
             Position__c: string | null;
             Type__c: string | null;
             Work_Mode__c: string | null;
+            Company__c: string | null;
           } | null;
           Job_Application_Question_Response?: Array<{
             attributes: {
@@ -190,6 +191,12 @@ export async function POST(req: NextRequest) {
                 "", // Get job location from
             },
             {
+              name: "candidateId",
+              type: "Text",
+              value:
+                flowResponse[0].outputValues.Candidate_Details.Id ?? "", // Get candidate name from flow
+            },
+            {
               name: "candidateName",
               type: "Text",
               value:
@@ -225,10 +232,10 @@ export async function POST(req: NextRequest) {
             {
               name: "jobCompanyName",
               type: "Text",
-              // value:
-              //   flowResponse[0].outputValues.Job_Posting_Details?.Job_Name__c ??
-              //   "", // Get job company name from flow
-              value: "Adecco",
+              value:
+                flowResponse[0].outputValues.Job_Posting_Details?.Company__c ??
+                "", // Get job company name from flow
+              // value: "Adecco",
             },
             {
               name: "jobType",
