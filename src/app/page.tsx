@@ -15,6 +15,9 @@ import { SearchFilters } from "./components/SearchFilters";
 import { JobDetailModal } from "./components/JobDetails";
 import { Job, CreateApplicationData } from "./types";
 
+import Script from "next/script";
+import { initEmbeddedMessaging } from "@/js/sfEmbeddedDeployment";
+
 export default function Home() {
   // State for job data, UI flags, and filters
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -223,6 +226,11 @@ export default function Home() {
 
       {/* Footer */}
       <Footer />
+      <Script
+          type="text/javascript"
+          src="https://orgfarm-bc9c32a6ca-dev-ed.develop.my.site.com/ESWKaranManral1753872031937/assets/js/bootstrap.min.js"
+          onLoad={initEmbeddedMessaging}
+        />
     </div>
   );
 }
